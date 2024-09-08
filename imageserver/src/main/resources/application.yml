@@ -5,8 +5,8 @@ server:
     encoding:
       charset: utf-8
       force: true
-  datasource:
-    url: ''
+
+spring:
   jpa:
     hibernate:
       ddl-auto: none
