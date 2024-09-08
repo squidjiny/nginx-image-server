@@ -1,6 +1,7 @@
 package org.spot.imageserver;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +18,9 @@ import java.nio.file.Paths;
 @RequestMapping("/upload")
 public class imageController {
 
-    private final String uploadDirectory = "/home/files/images/";
+    private final String uploadDirectory = "/home/files/profiles/";
 
-    @PostMapping("/upload")
+    @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
             // 파일을 저장할 경로 설정
